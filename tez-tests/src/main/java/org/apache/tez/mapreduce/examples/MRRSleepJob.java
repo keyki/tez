@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.IOException;
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -396,7 +398,7 @@ public class MRRSleepJob extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
-    int res = ToolRunner.run(new Configuration(), new MRRSleepJob(), args);
+    int res = ToolRunner.run(getTezDecoratedConfiguration(), new MRRSleepJob(), args);
     System.exit(res);
   }
   

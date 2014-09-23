@@ -23,6 +23,7 @@ import java.text.DecimalFormat;
 import java.util.EnumSet;
 import java.util.Set;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ProgramDriver;
 import org.apache.tez.common.counters.TezCounters;
 import org.apache.tez.dag.api.TezException;
@@ -88,6 +89,12 @@ public class ExampleDriver {
     System.exit(exitCode);
   }
 
+  public static Configuration getTezDecoratedConfiguration() {
+    Configuration configuration = new Configuration();
+    configuration.set("mapreduce.framework.name", "yarn-tez");
+    return configuration;
+  }
+
   public static void printDAGStatus(DAGClient dagClient, String[] vertexNames)
       throws IOException, TezException {
     printDAGStatus(dagClient, vertexNames, false, false);
@@ -150,4 +157,4 @@ public class ExampleDriver {
   }
 
 }
-	
+

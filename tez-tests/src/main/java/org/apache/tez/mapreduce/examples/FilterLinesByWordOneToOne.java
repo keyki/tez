@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
@@ -83,7 +85,7 @@ public class FilterLinesByWordOneToOne extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
-    Configuration conf = new Configuration();
+    Configuration conf = getTezDecoratedConfiguration();
     String[] otherArgs = new GenericOptionsParser(conf, args)
         .getRemainingArgs();
     int status = ToolRunner.run(conf, new FilterLinesByWordOneToOne(),

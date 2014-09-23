@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -364,9 +366,8 @@ public class GroupByOrderByMRRTest extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
-    Configuration configuration = new Configuration();
     GroupByOrderByMRRTest groupByOrderByMRRTest = new GroupByOrderByMRRTest();
-    int status = ToolRunner.run(configuration, groupByOrderByMRRTest, args);
+    int status = ToolRunner.run(getTezDecoratedConfiguration(), groupByOrderByMRRTest, args);
     System.exit(status);
   }
 }

@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.IOException;
 
 import java.nio.ByteBuffer;
@@ -262,9 +264,8 @@ public class BroadcastAndOneToOneExample extends Configured implements Tool {
   static String skipLocalityCheck = "-skipLocalityCheck";
 
   public static void main(String[] args) throws Exception {
-    Configuration conf = new Configuration();
     BroadcastAndOneToOneExample job = new BroadcastAndOneToOneExample();
-    int status = ToolRunner.run(conf, job, args);
+    int status = ToolRunner.run(getTezDecoratedConfiguration(), job, args);
     System.exit(status);
   }
 }

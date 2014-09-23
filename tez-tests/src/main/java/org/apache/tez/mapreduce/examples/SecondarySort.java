@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -242,7 +244,7 @@ public class SecondarySort extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
-    int res = ToolRunner.run(new Configuration(), new SecondarySort(), args);
+    int res = ToolRunner.run(getTezDecoratedConfiguration(), new SecondarySort(), args);
     System.exit(res);
   }
 }

@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -259,7 +261,7 @@ public class FilterLinesByWord extends Configured implements Tool {
   
   public static void main(String[] args) throws Exception {
     FilterLinesByWord fl = new FilterLinesByWord(true);
-    int status = ToolRunner.run(new Configuration(), fl, args);
+    int status = ToolRunner.run(getTezDecoratedConfiguration(), fl, args);
     if (fl.exitOnCompletion) {
       System.exit(status);
     }

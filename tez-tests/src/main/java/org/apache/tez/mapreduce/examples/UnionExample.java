@@ -17,6 +17,8 @@
  */
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.IOException;
 import java.util.EnumSet;
 import java.util.Map;
@@ -235,7 +237,7 @@ public class UnionExample {
     if (conf != null) {
       tezConf = new TezConfiguration(conf);
     } else {
-      tezConf = new TezConfiguration();
+      tezConf = new TezConfiguration(getTezDecoratedConfiguration());
     }
     UserGroupInformation.setConfiguration(tezConf);
     String user = UserGroupInformation.getCurrentUser().getShortUserName();

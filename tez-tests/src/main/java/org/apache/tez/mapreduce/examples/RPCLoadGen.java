@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -210,7 +212,7 @@ public class RPCLoadGen extends TezExampleBase {
   }
 
   public static void main(String[] args) throws Exception {
-    int res = ToolRunner.run(new Configuration(), new RPCLoadGen(), args);
+    int res = ToolRunner.run(getTezDecoratedConfiguration(), new RPCLoadGen(), args);
     System.exit(res);
   }
 }

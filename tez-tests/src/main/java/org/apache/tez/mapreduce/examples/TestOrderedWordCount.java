@@ -18,6 +18,8 @@
 
 package org.apache.tez.mapreduce.examples;
 
+import static org.apache.tez.mapreduce.examples.ExampleDriver.getTezDecoratedConfiguration;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -517,7 +519,7 @@ public class TestOrderedWordCount extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
-    int res = ToolRunner.run(new Configuration(), new TestOrderedWordCount(), args);
+    int res = ToolRunner.run(getTezDecoratedConfiguration(), new TestOrderedWordCount(), args);
     System.exit(res);
   }
 }
